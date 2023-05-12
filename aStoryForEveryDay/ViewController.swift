@@ -13,6 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var tableView: UITableView!
     
     var myStory = [Story]()
+    var cizmeliKediStory : Story?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,9 +67,15 @@ class ViewController: UIViewController, UITableViewDelegate,UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        cizmeliKediStory = myStory[indexPath.row]
         self.performSegue(withIdentifier: "toDetailsVC", sender: nil)
     }
    
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue .identifier == "toDetailsVC"{
+            let destinationVC = segue.destination as! detailsVC
+            destinationVC.selectedStory = cizmeliKediStory
+        }
+    }
 }
 
