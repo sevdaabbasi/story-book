@@ -10,6 +10,8 @@ import UIKit
 class detailsVC: UIViewController {
 
     @IBOutlet weak var label: UILabel!
+  
+    @IBOutlet weak var labelTest1: UILabel!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -26,6 +28,10 @@ class detailsVC: UIViewController {
 
         label.text = selectedStory?.storyName
         imageView.image = selectedStory?.image
+        labelTest1.text = selectedStory?.storyAdd
+        
+        labelTest1.numberOfLines = 0
+        labelTest1.lineBreakMode = .byWordWrapping
         
         
         
